@@ -1,3 +1,5 @@
+//Code by Mudit
+//Date: 09/09/2026
 #include <stdio.h>
 
 double calculateArea(double length, double width)
