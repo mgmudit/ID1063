@@ -23,7 +23,9 @@ int main()
     char str[100];
 
     printf("Input: ");
-    scanf("%99s", str);
+    fgets(str, sizeof(str), stdin);
+
+    str[strcspn(str, "\n")] = '\0';
 
     if (isPalindrome(str))
         printf("Output: Palindrome\n");
