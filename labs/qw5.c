@@ -20,19 +20,12 @@ int isPalindrome(char str[])
 
 int main()
 {
-    char str1[] = "madam";
-    char str2[] = "hello";
+    char str[100];
 
-    printf("Input: %s\n", str1);
+    printf("Input: ");
+    scanf("%99s", str);
 
-    if (isPalindrome(str1))
-        printf("Output: Palindrome\n");
-    else
-        printf("Output: Not a Palindrome\n");
-
-    printf("\nInput: %s\n", str2);
-
-    if (isPalindrome(str2))
+    if (isPalindrome(str))
         printf("Output: Palindrome\n");
     else
         printf("Output: Not a Palindrome\n");
