@@ -16,21 +16,16 @@ char *createChar(int n)
 
 int main()
 {
-    int n;
+    int n = 100;
     char x, y;
 
-    printf("Enter maximum string length: ");
-    scanf("%d", &n);
-
+    // Dynamically allocate memory for the input string
     char *str = createChar(n);
-
-    // Space before %c consumes the newline left by scanf
-    scanf("%*c");
 
     printf("Input: ");
     fgets(str, n + 1, stdin);
 
-    // Remove newline added by fgets, if present
+    // Remove the newline added by fgets
     str[strcspn(str, "\n")] = '\0';
 
     printf("Character to replace: ");
@@ -48,6 +43,7 @@ int main()
 
     printf("Output: %s\n", str);
 
+    // Release dynamically allocated memory
     free(str);
 
     return 0;
