@@ -2,6 +2,7 @@
 //Date: 09/09/2026
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Reference for dynamic memory allocation:
 // https://github.com/gadepall/cprog/blob/main/codes/msoft/libs/matfun.h
@@ -10,7 +11,6 @@ char *createChar(int n)
 {
     char *a;
 
-    // Allocate n characters + 1 for the null character '\0'
     a = (char *)malloc((n + 1) * sizeof(char));
 
     return a;
@@ -19,27 +19,26 @@ char *createChar(int n)
 int main()
 {
     int n;
+    int ch;
 
     printf("Enter n: ");
     scanf("%d", &n);
 
-    // Create a dynamically allocated character array
+    // Remove the newline left behind by scanf
+    while ((ch = getchar()) != '\n' && ch != EOF);
+
     char *str = createChar(n);
 
-    printf("Enter %d characters:\n", n);
+    printf("Enter %d characters: ", n);
 
-    // Store n characters in the allocated memory
-    for (int i = 0; i < n; i++)
-    {
-        scanf(" %c", &str[i]);
-    }
+    // Read characters including spaces
+    fgets(str, n + 1, stdin);
 
-    // Add null character to make the array a valid C string
-    str[n] = '\0';
+    // Remove newline if present
+    str[strcspn(str, "\n")] = '\0';
 
     printf("String: %s\n", str);
 
-    // Free the dynamically allocated memory
     free(str);
 
     return 0;
