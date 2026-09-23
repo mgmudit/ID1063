@@ -50,7 +50,7 @@ int main()
         printf("%d ", a[i]);
     }
 
-    printf("\nOutput = %d\n", answer);
+    printf("\nPosition = %d\n", answer);
 
     return 0;
 }
