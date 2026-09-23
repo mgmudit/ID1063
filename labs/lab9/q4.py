@@ -12,7 +12,7 @@ def firstStable(a, tolerance):
     return -1  # No stable index found
 
 
-a = np.array(list(map(float, input().split())))  # Takes readings
-tolerance = float(input())  # Takes tolerance
+a = np.array(list(map(float, input("Enter the numbers of whose you tolerance you want to calculate: ").split())))  # Takes readings
+tolerance = float(input("Enter the tolerance: "))  # Takes tolerance
 
-print(firstStable(a, tolerance))
+print("Output: ", firstStable(a, tolerance))

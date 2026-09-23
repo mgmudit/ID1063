@@ -23,7 +23,7 @@ int main()
     double tolerance;
     
     //Taking input
-    printf("Enter n: ");
+    printf("Enter how many numbers you want to enter: ");
     scanf("%d", &n);
 
     double a[n];
@@ -32,10 +32,11 @@ int main()
     for (int i = 0; i < n; i++)
         scanf("%lf", &a[i]);
 
+    printf("Enter tolerance: ");
     scanf("%lf", &tolerance);
 
     //Using the function
-    printf("%d\n", firstStable(a, n, tolerance));
+    printf("Output is %d\n", firstStable(a, n, tolerance));
 
     return 0;
 }
