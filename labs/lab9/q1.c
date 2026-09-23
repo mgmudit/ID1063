@@ -3,40 +3,28 @@
 #include <stdio.h>
 #include <math.h>
 
+double norm(double a[], int n)
+{
+    double sum = 0.0;
+
+    for (int i = 0; i < n; i++)
+    {
+        sum += a[i] * a[i];
+    }
+
+    return sqrt(sum);
+}
+
+
 double rms(double a[], int n)
 {
-    // A = n x 1 column matrix
-    double A[n][1];
+    n = n;   // n is already supplied
 
-    for (int i = 0; i < n; i++)
-    {
-        A[i][0] = a[i];
-    }
+    double normA = norm(a, n);
 
-    // AT = 1 x n row matrix
-    double AT[1][n];
-
-    for (int i = 0; i < n; i++)
-    {
-        AT[0][i] = A[i][0];
-    }
-
-    // result = AT x A
-    double result[1][1] = {0};
-
-    for (int i = 0; i < 1; i++)
-    {
-        for (int j = 0; j < 1; j++)
-        {
-            for (int k = 0; k < n; k++)
-            {
-                result[i][j] += AT[i][k] * A[k][j];
-            }
-        }
-    }
-
-    return sqrt(result[0][0] / n);
+    return normA / sqrt(n);
 }
+
 
 int main()
 {
@@ -60,25 +48,35 @@ int main()
     printf("Example 1:\n");
     printf("n = %d\n", n1);
     printf("Readings = ");
+
     for (int i = 0; i < n1; i++)
         printf("%g ", a1[i]);
+
+    printf("\nNorm = %.4f", norm(a1, n1));
     printf("\nRMS = %.2f\n\n", answer1);
 
 
     printf("Example 2:\n");
     printf("n = %d\n", n2);
     printf("Readings = ");
+
     for (int i = 0; i < n2; i++)
         printf("%g ", a2[i]);
+
+    printf("\nNorm = %.4f", norm(a2, n2));
     printf("\nRMS = %.2f\n\n", answer2);
 
 
     printf("Example 3:\n");
     printf("n = %d\n", n3);
     printf("Readings = ");
+
     for (int i = 0; i < n3; i++)
         printf("%g ", a3[i]);
+
+    printf("\nNorm = %.4f", norm(a3, n3));
     printf("\nRMS = %.2f\n", answer3);
+
 
     return 0;
 }
