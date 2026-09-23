@@ -9,7 +9,7 @@ int firstStable(double a[], int n, double tolerance)
     //Checking one by one
     for (int i = 0; i < n - 1; i++)
     {
-        if (fabs(a[i + 1] - a[i]) <= tolerance)
+        if (fabs(a[i + 1] - a[i]) <= tolerance+1e-9)  //To fix precision error
             return i;
     }
     
