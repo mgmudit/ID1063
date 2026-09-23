@@ -7,12 +7,9 @@ def daysElapsed(day, month):
     return sum(days[:month - 1]) + day
 
 
-# Example
-day = 1
-month = 2
+day = int(input("Enter day: "))
+month = int(input("Enter month: "))
 
 answer = daysElapsed(day, month)
 
-print("day =", day)
-print("month =", month)
 print("Days elapsed =", answer)

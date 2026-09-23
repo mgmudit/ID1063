@@ -19,14 +19,17 @@ int daysElapsed(int day, int month)
 
 int main()
 {
-    int day = 1;
-    int month = 2;
+    int day, month;
 
-    int output = daysElapsed(day, month);
+    printf("Enter day: ");
+    scanf("%d", &day);
 
-    printf("day = %d\n", day);
-    printf("month = %d\n", month);
-    printf("Days Elapsed = %d\n", output);
+    printf("Enter month: ");
+    scanf("%d", &month);
+
+    int answer = daysElapsed(day, month);
+
+    printf("Days elapsed = %d\n", answer);
 
     return 0;
 }
