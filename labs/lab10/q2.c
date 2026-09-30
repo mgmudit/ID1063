@@ -4,25 +4,20 @@
 #include <stdlib.h>
 #include "coeffs.h"
 
-int main()
+void binaryMatrix(int n, int m)
 {
-    int m, n;
     double x;
 
-    // Read the matrix dimensions
-    printf("Enter the dimensions of matrix: ");
-    scanf("%d %d", &m, &n);
+    // Generate n*m random numbers using uniform() function
+    uniform("matrix.dat", n * m);
 
-    // Generate m*n random numbers using uniform() function
-    uniform("matrix.dat", m * n);
-
-    // Open the generated file for reading
+    // Open the file containing the random numbers
     FILE *fp = fopen("matrix.dat", "r");
 
-    // Convert the random numbers into 0 or 1
-    for (int i = 0; i < m; i++)
+    // Read the numbers row by row and convert them to 0 or 1
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < m; j++)
         {
             fscanf(fp, "%lf", &x);
 
@@ -31,10 +26,24 @@ int main()
             else
                 printf("1 ");
         }
+
         printf("\n");
     }
 
+    // Close the file
     fclose(fp);
+}
+
+int main()
+{
+    int n, m;
+
+    // Read the number of rows and columns
+    printf("Enter the dimensions of the matrix: ");
+    scanf("%d %d", &n, &m);
+
+    // Generate and print the binary matrix
+    binaryMatrix(n, m);
 
     return 0;
 }
