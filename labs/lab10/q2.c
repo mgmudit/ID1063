@@ -2,12 +2,13 @@
 //Date: 30/09/2026
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "coeffs.h"
 
 void binaryMatrix(int n, int m)
 {
     double x;
-
+    srand(time(NULL));  // Set a different random seed each run
     // Generate n*m random numbers using uniform() function
     uniform("matrix.dat", n * m);
 
