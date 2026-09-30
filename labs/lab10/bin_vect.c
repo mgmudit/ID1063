@@ -2,11 +2,13 @@
 //Date: 30/09/2026
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "coeffs.h"
 
 void binaryVector(int n)
 {
-    double x;
+        srand(time(NULL));  // Set a different random seed each run
+	double x;
 
     // Generate n random numbers using uniform() function
     uniform("binary.dat", n);
